@@ -1,11 +1,11 @@
 import "./App.css";
-import Grid from "./components/grid";
+import GameOfLife from "./components/gameoflife";
 
 function App() {
   return (
     <>
       <div className="App">
-        <Grid />
+        <GameOfLife />
       </div>
     </>
   );
