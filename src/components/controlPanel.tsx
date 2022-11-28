@@ -13,6 +13,7 @@ function ControlPanel(props: ControlPanelProps) {
     props.onFramerateChange(value);
     setFramerate(value);
   }
+
   return (
     <>
       <div>

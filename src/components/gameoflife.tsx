@@ -16,12 +16,21 @@ function GameOfLife() {
 
   return (
     <>
-      <ControlPanel
-        isRunning={isRunning}
-        onStartButtonClick={toggleIsRunning}
-        onFramerateChange={updateFramerate}
-      />
-      <Grid isRunning={isRunning} framerate={framerate} />
+      <div>
+        <div id="MyInfo">
+          <p>Hi</p>
+        </div>
+        <div id="ControlPanel">
+          <ControlPanel
+            isRunning={isRunning}
+            onStartButtonClick={toggleIsRunning}
+            onFramerateChange={updateFramerate}
+          />
+        </div>
+        <div id="Grid">
+          <Grid isRunning={isRunning} framerate={framerate} />
+        </div>
+      </div>
     </>
   );
 }

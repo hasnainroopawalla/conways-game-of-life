@@ -1,5 +1,19 @@
 .App {
-  text-align: center;
+  text-align: center; 
+}
+
+#Grid {
+  margin-left: 10px;
+  margin-right: 10px;
+  min-height: 70vh;
+}
+
+#ControlPanel {
+  min-height: 5vh;
+}
+
+#MyInfo {
+  min-height: 5vh;
 }
 
 .App-logo {
