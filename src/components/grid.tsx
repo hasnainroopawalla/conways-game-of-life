@@ -1,6 +1,7 @@
 import Sketch from "react-p5";
 import p5Types from "p5";
 import { useState } from "react";
+import { getNeighbors } from "./helpers";
 
 interface GridProps {
   isRunning: boolean;
@@ -8,7 +9,6 @@ interface GridProps {
 }
 
 let [numRows, numCols] = [0, 0];
-// const [canvasWidth, canvasHeight] = [800, 400];
 let [cellWidth, cellHeight] = [10, 10];
 
 function Grid(props: GridProps) {
@@ -34,10 +34,6 @@ function Grid(props: GridProps) {
     var width = document.getElementById("Grid")!.clientWidth;
     var height = document.getElementById("Grid")!.clientHeight;
 
-    // Required because canvas cuts off at the bottom
-    // width = width + (cellWidth - (width % cellWidth));
-    // height = height + (cellHeight - (height % cellHeight));
-
     p5.createCanvas(width, height).parent(canvasParentRef);
 
     [numRows, numCols] = [
@@ -50,6 +46,7 @@ function Grid(props: GridProps) {
   function updateGrid() {
     for (let i = 0; i < numRows; i++) {
       for (let j = 0; j < numCols; j++) {
+        getNeighbors(i, j, numRows, numCols);
         let isAlive = true;
         if (Math.random() < 0.8) {
           isAlive = false;

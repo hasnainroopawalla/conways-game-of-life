@@ -1,8 +1,10 @@
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
 
 interface ControlPanelProps {
   isRunning: boolean;
-  onStartButtonClick: () => void;
+  onStartStopButtonClick: () => void;
+  onResetButtonClick: () => void;
   onFramerateChange: (framerate: number) => void;
 }
 
@@ -17,10 +19,20 @@ function ControlPanel(props: ControlPanelProps) {
   return (
     <>
       <div>
-        <button onClick={props.onStartButtonClick}>
+        <Button
+          variant={props.isRunning! ? "danger" : "success"}
+          onClick={props.onStartStopButtonClick}
+          className="StartStopButton"
+        >
           {props.isRunning! ? "Stop" : "Start"}
-        </button>
-        <button>Random</button>
+        </Button>
+        <Button
+          variant="primary"
+          className="ResetButton"
+          onClick={props.onResetButtonClick}
+        >
+          Reset
+        </Button>
         <label>Framerate</label>
         <input
           type="range"

@@ -6,25 +6,27 @@ function GameOfLife() {
   const [isRunning, setIsRunning] = useState(false);
   const [framerate, setFramerate] = useState(10);
 
-  const toggleIsRunning = () => {
+  const onStartStopButtonClick = () => {
     setIsRunning((isRunning) => !isRunning);
   };
 
-  const updateFramerate = (framerate: number) => {
+  const onResetButtonClick = () => {
+    alert("reset!");
+  };
+
+  const onFramerateChange = (framerate: number) => {
     setFramerate(framerate);
   };
 
   return (
     <>
       <div>
-        <div id="MyInfo">
-          <p>Hi</p>
-        </div>
         <div id="ControlPanel">
           <ControlPanel
             isRunning={isRunning}
-            onStartButtonClick={toggleIsRunning}
-            onFramerateChange={updateFramerate}
+            onStartStopButtonClick={onStartStopButtonClick}
+            onResetButtonClick={onResetButtonClick}
+            onFramerateChange={onFramerateChange}
           />
         </div>
         <div id="Grid">
